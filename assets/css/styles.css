@@ -1,0 +1,180 @@
+body{
+    margin: 0;
+    padding: 0;    
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+label{
+    min-width: 100px;
+    display: inline-block;
+    text-align: left;
+}
+
+.wrapper{
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1{
+    text-transform: uppercase;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18pt;
+    letter-spacing: 2px;
+    margin: 30px 0;
+}
+
+.formData{
+    margin: 10px 0;
+}
+
+input{
+    max-width: 150px;
+    width: 100%;
+    padding: 3px 5px;
+    margin: 0;
+}
+
+select{
+    max-width: 162px;
+    width: 100%;
+    margin: 3px 0px;
+    padding: auto;
+}
+
+button {
+	border-radius: 0;
+	padding: 8px 20px;
+	margin-top: 20px;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+    cursor: pointer;    
+    margin-bottom: 20px;    
+	border: 1px solid #000;
+	background: #000;
+    color: #fff;    
+    transition: all 0.2s;
+}
+
+button:hover {
+    background: rgb(19, 117, 209);
+	color: #fff;
+	border: 1px solid rgb(19, 117, 209);
+}
+
+.error{
+    color: #900;
+    margin-bottom: 20px;
+}
+
+.success{
+    color: #060;
+    margin-bottom: 20px;
+}
+
+
+a {
+	border-radius: 0;
+	padding: 8px 20px;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+    cursor: pointer;
+	border: 1px solid #000;
+	background: #000;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: all 0.2s;
+    margin-left: 10x;
+}
+
+a:hover {
+    background: rgb(19, 117, 209);
+	color: #fff;
+	border: 1px solid rgb(19, 117, 209);
+}
+
+.pull-right{
+    float: right
+}
+
+.clear{
+    clear: both;
+}
+
+table{
+    width: 100%;
+    text-align: left;
+    padding-top: 25px;
+}
+
+tr{    
+    transition: all 0.2s;
+}
+
+td{
+    padding: 10px;
+}
+
+tr td:last-child {
+    text-align: right;
+}
+
+tr:nth-child(even) {
+    background: #f5f5f5;
+}
+
+tr:nth-child(odd) {
+    background: #ddd;
+}
+
+tr:hover{
+    background-color: #cde;
+}
+
+a.btn-sm {
+	border-radius: 0;
+	padding: 4px 10px;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+    cursor: pointer;
+	border: 1px solid rgb(19, 117, 209);
+	background: #fff;
+    color: rgb(19, 117, 209);
+    text-decoration: none;
+    transition: all 0.2s;
+    margin-left: 10px;
+}
+
+a.btn-sm:hover {    
+    background: rgb(19, 117, 209);
+	color: #fff;
+}
+
+.navigation{
+    text-align: left;
+    background-color: rgb(19, 117, 209);
+}
+
+.navigation a{
+    background-color: rgb(19, 117, 209);
+    border: 0;
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+    display: inline-block;
+}
+
+
+.navigation a.active{
+    background-color: rgb(1, 82, 158);
+    border: 0;
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+    display: inline-block;
+}
