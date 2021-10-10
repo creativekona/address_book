@@ -115,7 +115,7 @@ tr{
     transition: all 0.2s;
 }
 
-td{
+td, th{
     padding: 10px;
 }
 
@@ -177,4 +177,37 @@ a.btn-sm:hover {
     padding: 20px;
     margin: 0;
     display: inline-block;
+}
+
+.appendOptions{
+    margin-top: 10px;
+}
+    
+.group_tags {
+	font-size: 12px;
+	background: #eee;
+	padding: 3px 5px;
+	margin: 0;
+	border: 1px solid #bbb;
+	border-radius: 5px;
+    margin-right: 5px;
+}
+
+.text-left{
+    text-align: left;
+}
+
+.mt-0{
+    margin-top: 0;
+}
+
+.btn-danger{
+	border: 1px solid #f00 !important;
+	background: #fff !important;
+    color: #c00 !important;
+}
+
+.btn-danger:hover{
+    background: #c00 !important;
+	color: #fff !important;
 }

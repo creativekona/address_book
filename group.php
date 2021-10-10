@@ -15,11 +15,18 @@ $page = 'group';
 // Include site header
 include_once( SITE_ROOT . '/theme/header.php' );
 
-// Prepare addresses from database
 $contents = '';
 $contents .= "<div class='address_row'>";
 $contents .= "<table>";
 
+$contents .= "<tr>";
+$contents .= "<th>Group id</th>";
+$contents .= "<th>Group name</th>";
+$contents .= "<th>Created</th>";    
+$contents .= "<th>Actions</th>";
+$contents .= "</tr>";
+
+// Prepare group from database
 
 $groups = Group::find_all();
 

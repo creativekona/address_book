@@ -117,6 +117,12 @@ endforeach;
                 <label> Zip code </label>
                 <input max="999999" value="<?php echo (isset($zip) ? $zip : ''); ?>" type="number" name="zip" />
             </div>
+            
+            <div class="error">
+                <br>
+                Editing and updating group will be added here. <br> Not developed in this test. <br> Groups can be assigned while creating a new address.
+            </div>
+
             <div class="formData">
                 <button type="submit"> update address </button>
             </div>

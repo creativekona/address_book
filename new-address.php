@@ -19,6 +19,11 @@ if(isset($_POST['f_name'])){
     (is_blank_single($_POST['street'])==true) ? $error .= "Street is required <br>" : $street = $_POST['street'];
     (is_blank_single($_POST['city'])==true) ? $error .= "City is required <br>" : $city_n = $_POST['city'];
     (is_blank_single($_POST['zip'])==true) ? $error .= "Zip is required <br>" : $zip = $_POST['zip'];
+    if(isset($_POST['groups'])){            
+        (is_blank_single($_POST['groups'])==true) ? $error .= "Group is required <br>" : $groups = $_POST['groups'];
+    }else{
+        $error .= "Group is required <br>";
+    }
     // Other advanced form validatins goes here
 
     // insert data to database (senetization will be done before insert from relavent class function)
@@ -35,8 +40,24 @@ if(isset($_POST['f_name'])){
         
         $success .= "New address added successfully";
 
-        $f_name = $l_name = $email = $street = $city_n = $zip = false;
+        $address_id = $database->insert_id();
+
+        // remove parent group if child was assigned to address
+        // here is the main game
+        $filtered_groups = filter_groups($groups);
+
+        // insert groups and address relation to related db table
+        foreach ($filtered_groups as $v) {
+            $new_relation = new Group_address_relation();
+            $new_relation -> address_id = $address_id;
+            $new_relation -> group_id = $v;
+            $new_relation -> created_at = date('Y-m-d H:i:s');            
+            $new_relation -> create();
+        }
+
+        $f_name = $l_name = $email = $street = $city_n = $zip = $groups = false;
     }
+
 }
 
 /** 
@@ -62,6 +83,15 @@ $opts_add = '<option value="" '. ( !isset($city_n) || $city_n == '' ? 'selected'
 foreach ($cities as $city):
     $opts_add .= "<option value='".$city->id."' ". ( isset($city_n) && $city_n == $city->id ? 'selected' : '' ) .">".$city->city."</option>";
 endforeach;
+
+// Prepare group list from database
+$dashes = '';
+$groups_opt = '<option value="" '. ( !isset($group_parent) || $group_parent == '' ? 'selected' : '' ) .'>Select group</option>';
+/////// convert all groups into options wth dashed /////////
+if(!isset($group_parent)){
+    $group_parent = '';
+}
+$groups_opt .= getRlational(0, $group_parent);
 
 ?>
 
@@ -99,6 +129,15 @@ endforeach;
                 <label> Zip code </label>
                 <input max="999999" value="<?php echo (isset($zip) ? $zip : ''); ?>" type="number" name="zip" />
             </div>
+
+            <div class="formData">
+                <label> Group </label>
+                <select name="group_parent" class="address-group-select">
+                    <?php echo $groups_opt; ?>
+                </select>
+                <div class="appendOptions"></div>
+            </div>
+
             <div class="formData">
                 <button type="submit"> Add new address </button>
             </div>
